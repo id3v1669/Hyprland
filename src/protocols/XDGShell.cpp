@@ -94,7 +94,7 @@ CXDGPopupResource::~CXDGPopupResource() {
 void CXDGPopupResource::applyPositioning(const CBox& box, const Vector2D& t1coord) {
     CBox constraint = box.copy().translate(m_surface->m_pending.geometry.pos());
 
-    m_geometry = m_positionerRules.getPosition(constraint, accumulateParentOffset() + t1coord);
+    m_geometry = m_positionerRules.getPosition(constraint, accumulateParentOffset() + t1coord).round();
 
     LOG(Log::DEBUG, "Popup {:x} gets unconstrained to {} {}", (uintptr_t)this, m_geometry.pos(), m_geometry.size());
 
